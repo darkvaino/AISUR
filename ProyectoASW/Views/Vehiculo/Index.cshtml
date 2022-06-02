@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ENTIDAD.vehiculo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Vehiculos</h2>
+
+<p>
+    @Html.ActionLink("Crear Vehiculo", "Crear", "Vehiculo")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_vehiculo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cilindraje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.capacidadCargaMunicion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idTipoVehiculo_Fk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idMarca_Fk)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_vehiculo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cilindraje)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.capacidadCargaMunicion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idTipoVehiculo_Fk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idMarca_Fk)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id = item.id_vehiculo }) |
+            @Html.ActionLink("Detalle", "GetVehiculo", new { id = item.id_vehiculo }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new { id = item.id_vehiculo })
+        </td>
+    </tr>
+}
+
+</table>

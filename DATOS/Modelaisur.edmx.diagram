@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c99e8be4e06349c09fb3151e61e26819" Name="Diagram1">
+        <EntityTypeShape EntityType="conflictoaisurModel.arma" Width="1.5" PointX="0.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="conflictoaisurModel.armaExplosiva" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="conflictoaisurModel.arsenalSoldado" Width="1.5" PointX="8.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="conflictoaisurModel.clasificacion" Width="1.5" PointX="1.5" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="conflictoaisurModel.marca" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="conflictoaisurModel.pais" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="conflictoaisurModel.paisArma" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="conflictoaisurModel.paisArmaExplosiva" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="conflictoaisurModel.paisVehiculo" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="conflictoaisurModel.profesion" Width="1.5" PointX="3.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="conflictoaisurModel.rango" Width="1.5" PointX="3.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="conflictoaisurModel.soldado" Width="1.5" PointX="6" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="conflictoaisurModel.soldadoTipoArma" Width="1.5" PointX="8.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="conflictoaisurModel.tipoArma" Width="1.5" PointX="1.5" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="conflictoaisurModel.TipoUsuario" Width="1.5" PointX="10.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="conflictoaisurModel.tipoVehiculo" Width="1.5" PointX="3.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="conflictoaisurModel.Usuario" Width="1.5" PointX="13" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="conflictoaisurModel.vehiculo" Width="1.5" PointX="6" PointY="18.5" IsExpanded="true" />
+        <AssociationConnector Association="conflictoaisurModel.FK_arma_marca" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_arma_tipoArma" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_paisArma_arma" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_armaExplosiva_armaExplosiva" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_paisArmaExplosiva_armaExplosiva" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_arsenalSoldado_soldado" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_arsenalSoldado_vehiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_marca_clasificacion" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_vehiculo_marca" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_paisArma_pais" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_paisArmaExplosiva_pais" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_paisVehiculo_pais" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_soldado_pais" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_paisVehiculo_vehiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_soldado_profesion" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_soldado_rango" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_soldadoTipoArma_soldado" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_soldadoTipoArma_tipoArma" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_Usuario_TipoUsuario" ManuallyRouted="false" />
+        <AssociationConnector Association="conflictoaisurModel.FK_vehiculo_tipoVehiculo" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

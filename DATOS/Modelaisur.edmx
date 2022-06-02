@@ -1,0 +1,1254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="conflictoaisurModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="arma">
+          <Key>
+            <PropertyRef Name="id_arma" />
+          </Key>
+          <Property Name="id_arma" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="peso" Type="int" />
+          <Property Name="cantidadMunicion" Type="int" />
+          <Property Name="IdTipoArma_Fk" Type="bigint" />
+          <Property Name="IdMarca_Fk" Type="bigint" />
+        </EntityType>
+        <EntityType Name="armaExplosiva">
+          <Key>
+            <PropertyRef Name="id_armaExplosiva" />
+          </Key>
+          <Property Name="id_armaExplosiva" Type="bigint" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="100" />
+          <Property Name="peso" Type="int" />
+          <Property Name="alcance" Type="int" />
+          <Property Name="poderDestruccion" Type="int" />
+          <Property Name="idMarca_Fk" Type="bigint" />
+        </EntityType>
+        <EntityType Name="arsenalSoldado">
+          <Key>
+            <PropertyRef Name="id_arsenalSolado" />
+          </Key>
+          <Property Name="id_arsenalSolado" Type="bigint" Nullable="false" />
+          <Property Name="idSoldado_Fk" Type="bigint" />
+          <Property Name="idVehiculo_Fk" Type="bigint" />
+        </EntityType>
+        <EntityType Name="clasificacion">
+          <Key>
+            <PropertyRef Name="id_clasificacion" />
+          </Key>
+          <Property Name="id_clasificacion" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clasificacion" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="marca">
+          <Key>
+            <PropertyRef Name="id_marca" />
+          </Key>
+          <Property Name="id_marca" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="100" />
+          <Property Name="idClasificacion_Fk" Type="bigint" />
+        </EntityType>
+        <EntityType Name="pais">
+          <Key>
+            <PropertyRef Name="id_pais" />
+          </Key>
+          <Property Name="id_pais" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="paisArma">
+          <Key>
+            <PropertyRef Name="id_paisArma" />
+          </Key>
+          <Property Name="id_paisArma" Type="bigint" Nullable="false" />
+          <Property Name="cantidad" Type="int" />
+          <Property Name="cantidadMunicion" Type="int" />
+          <Property Name="IdPais_Fk" Type="bigint" />
+          <Property Name="IdArma_Fk" Type="bigint" />
+        </EntityType>
+        <EntityType Name="paisArmaExplosiva">
+          <Key>
+            <PropertyRef Name="id_paisArmaExplosiva" />
+          </Key>
+          <Property Name="id_paisArmaExplosiva" Type="bigint" Nullable="false" />
+          <Property Name="cantidad" Type="int" />
+          <Property Name="idPais_Fk" Type="bigint" />
+          <Property Name="idArmaExplosiva_Fk" Type="bigint" />
+        </EntityType>
+        <EntityType Name="paisVehiculo">
+          <Key>
+            <PropertyRef Name="id_paisVehiculo" />
+          </Key>
+          <Property Name="id_paisVehiculo" Type="bigint" Nullable="false" />
+          <Property Name="idPais_Fk" Type="bigint" />
+          <Property Name="idVehiculo_Fk" Type="bigint" />
+        </EntityType>
+        <EntityType Name="profesion">
+          <Key>
+            <PropertyRef Name="id_profesion" />
+          </Key>
+          <Property Name="id_profesion" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="rango">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="soldado">
+          <Key>
+            <PropertyRef Name="id_soldado" />
+          </Key>
+          <Property Name="id_soldado" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="edad" Type="int" />
+          <Property Name="experiencia" Type="int" />
+          <Property Name="capacidadCarga" Type="int" />
+          <Property Name="idPais_Fk" Type="bigint" />
+          <Property Name="idProfesion_Fk" Type="bigint" />
+          <Property Name="idRango_Fk" Type="bigint" />
+        </EntityType>
+        <EntityType Name="soldadoTipoArma">
+          <Key>
+            <PropertyRef Name="id_soldadoTipoArma" />
+          </Key>
+          <Property Name="id_soldadoTipoArma" Type="bigint" Nullable="false" />
+          <Property Name="idSoldado" Type="bigint" />
+          <Property Name="idTipoArma_Fk" Type="bigint" />
+        </EntityType>
+        <EntityType Name="tipoArma">
+          <Key>
+            <PropertyRef Name="id_tipoArma" />
+          </Key>
+          <Property Name="id_tipoArma" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="100" />
+          <Property Name="clasificacion" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TipoUsuario">
+          <Key>
+            <PropertyRef Name="id_TipoUsuario" />
+          </Key>
+          <Property Name="id_TipoUsuario" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Descripcion" Type="text" />
+        </EntityType>
+        <EntityType Name="tipoVehiculo">
+          <Key>
+            <PropertyRef Name="id_tipoVehiculo" />
+          </Key>
+          <Property Name="id_tipoVehiculo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id_Usuario" />
+          </Key>
+          <Property Name="id_Usuario" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="id_TipoUsuario" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vehiculo">
+          <Key>
+            <PropertyRef Name="id_vehiculo" />
+          </Key>
+          <Property Name="id_vehiculo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="100" />
+          <Property Name="cilindraje" Type="int" />
+          <Property Name="capacidadCargaMunicion" Type="int" />
+          <Property Name="idTipoVehiculo_Fk" Type="bigint" />
+          <Property Name="idMarca_Fk" Type="bigint" />
+        </EntityType>
+        <Association Name="FK_arma_marca">
+          <End Role="marca" Type="Self.marca" Multiplicity="0..1" />
+          <End Role="arma" Type="Self.arma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="marca">
+              <PropertyRef Name="id_marca" />
+            </Principal>
+            <Dependent Role="arma">
+              <PropertyRef Name="IdMarca_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_arma_tipoArma">
+          <End Role="tipoArma" Type="Self.tipoArma" Multiplicity="0..1" />
+          <End Role="arma" Type="Self.arma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoArma">
+              <PropertyRef Name="id_tipoArma" />
+            </Principal>
+            <Dependent Role="arma">
+              <PropertyRef Name="IdTipoArma_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_armaExplosiva_armaExplosiva">
+          <End Role="marca" Type="Self.marca" Multiplicity="0..1" />
+          <End Role="armaExplosiva" Type="Self.armaExplosiva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="marca">
+              <PropertyRef Name="id_marca" />
+            </Principal>
+            <Dependent Role="armaExplosiva">
+              <PropertyRef Name="idMarca_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_arsenalSoldado_soldado">
+          <End Role="soldado" Type="Self.soldado" Multiplicity="0..1" />
+          <End Role="arsenalSoldado" Type="Self.arsenalSoldado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="soldado">
+              <PropertyRef Name="id_soldado" />
+            </Principal>
+            <Dependent Role="arsenalSoldado">
+              <PropertyRef Name="idSoldado_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_arsenalSoldado_vehiculo">
+          <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="0..1" />
+          <End Role="arsenalSoldado" Type="Self.arsenalSoldado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehiculo">
+              <PropertyRef Name="id_vehiculo" />
+            </Principal>
+            <Dependent Role="arsenalSoldado">
+              <PropertyRef Name="idVehiculo_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marca_clasificacion">
+          <End Role="clasificacion" Type="Self.clasificacion" Multiplicity="0..1" />
+          <End Role="marca" Type="Self.marca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clasificacion">
+              <PropertyRef Name="id_clasificacion" />
+            </Principal>
+            <Dependent Role="marca">
+              <PropertyRef Name="idClasificacion_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paisArma_arma">
+          <End Role="arma" Type="Self.arma" Multiplicity="0..1" />
+          <End Role="paisArma" Type="Self.paisArma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="arma">
+              <PropertyRef Name="id_arma" />
+            </Principal>
+            <Dependent Role="paisArma">
+              <PropertyRef Name="IdArma_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paisArma_pais">
+          <End Role="pais" Type="Self.pais" Multiplicity="0..1" />
+          <End Role="paisArma" Type="Self.paisArma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pais">
+              <PropertyRef Name="id_pais" />
+            </Principal>
+            <Dependent Role="paisArma">
+              <PropertyRef Name="IdPais_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paisArmaExplosiva_armaExplosiva">
+          <End Role="armaExplosiva" Type="Self.armaExplosiva" Multiplicity="0..1" />
+          <End Role="paisArmaExplosiva" Type="Self.paisArmaExplosiva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="armaExplosiva">
+              <PropertyRef Name="id_armaExplosiva" />
+            </Principal>
+            <Dependent Role="paisArmaExplosiva">
+              <PropertyRef Name="idArmaExplosiva_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paisArmaExplosiva_pais">
+          <End Role="pais" Type="Self.pais" Multiplicity="0..1" />
+          <End Role="paisArmaExplosiva" Type="Self.paisArmaExplosiva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pais">
+              <PropertyRef Name="id_pais" />
+            </Principal>
+            <Dependent Role="paisArmaExplosiva">
+              <PropertyRef Name="idPais_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paisVehiculo_pais">
+          <End Role="pais" Type="Self.pais" Multiplicity="0..1" />
+          <End Role="paisVehiculo" Type="Self.paisVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pais">
+              <PropertyRef Name="id_pais" />
+            </Principal>
+            <Dependent Role="paisVehiculo">
+              <PropertyRef Name="idPais_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paisVehiculo_vehiculo">
+          <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="0..1" />
+          <End Role="paisVehiculo" Type="Self.paisVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehiculo">
+              <PropertyRef Name="id_vehiculo" />
+            </Principal>
+            <Dependent Role="paisVehiculo">
+              <PropertyRef Name="idVehiculo_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_soldado_pais">
+          <End Role="pais" Type="Self.pais" Multiplicity="0..1" />
+          <End Role="soldado" Type="Self.soldado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pais">
+              <PropertyRef Name="id_pais" />
+            </Principal>
+            <Dependent Role="soldado">
+              <PropertyRef Name="idPais_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_soldado_profesion">
+          <End Role="profesion" Type="Self.profesion" Multiplicity="0..1" />
+          <End Role="soldado" Type="Self.soldado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profesion">
+              <PropertyRef Name="id_profesion" />
+            </Principal>
+            <Dependent Role="soldado">
+              <PropertyRef Name="idProfesion_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_soldado_rango">
+          <End Role="rango" Type="Self.rango" Multiplicity="0..1" />
+          <End Role="soldado" Type="Self.soldado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rango">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="soldado">
+              <PropertyRef Name="idRango_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_soldadoTipoArma_soldado">
+          <End Role="soldado" Type="Self.soldado" Multiplicity="0..1" />
+          <End Role="soldadoTipoArma" Type="Self.soldadoTipoArma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="soldado">
+              <PropertyRef Name="id_soldado" />
+            </Principal>
+            <Dependent Role="soldadoTipoArma">
+              <PropertyRef Name="idSoldado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_soldadoTipoArma_tipoArma">
+          <End Role="tipoArma" Type="Self.tipoArma" Multiplicity="0..1" />
+          <End Role="soldadoTipoArma" Type="Self.soldadoTipoArma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoArma">
+              <PropertyRef Name="id_tipoArma" />
+            </Principal>
+            <Dependent Role="soldadoTipoArma">
+              <PropertyRef Name="idTipoArma_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_TipoUsuario">
+          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuario">
+              <PropertyRef Name="id_TipoUsuario" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="id_TipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vehiculo_marca">
+          <End Role="marca" Type="Self.marca" Multiplicity="0..1" />
+          <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="marca">
+              <PropertyRef Name="id_marca" />
+            </Principal>
+            <Dependent Role="vehiculo">
+              <PropertyRef Name="idMarca_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vehiculo_tipoVehiculo">
+          <End Role="tipoVehiculo" Type="Self.tipoVehiculo" Multiplicity="0..1" />
+          <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoVehiculo">
+              <PropertyRef Name="id_tipoVehiculo" />
+            </Principal>
+            <Dependent Role="vehiculo">
+              <PropertyRef Name="idTipoVehiculo_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="conflictoaisurModelStoreContainer">
+          <EntitySet Name="arma" EntityType="Self.arma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="armaExplosiva" EntityType="Self.armaExplosiva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="arsenalSoldado" EntityType="Self.arsenalSoldado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clasificacion" EntityType="Self.clasificacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="marca" EntityType="Self.marca" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pais" EntityType="Self.pais" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="paisArma" EntityType="Self.paisArma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="paisArmaExplosiva" EntityType="Self.paisArmaExplosiva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="paisVehiculo" EntityType="Self.paisVehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="profesion" EntityType="Self.profesion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rango" EntityType="Self.rango" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="soldado" EntityType="Self.soldado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="soldadoTipoArma" EntityType="Self.soldadoTipoArma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoArma" EntityType="Self.tipoArma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoVehiculo" EntityType="Self.tipoVehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vehiculo" EntityType="Self.vehiculo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_arma_marca" Association="Self.FK_arma_marca">
+            <End Role="marca" EntitySet="marca" />
+            <End Role="arma" EntitySet="arma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_arma_tipoArma" Association="Self.FK_arma_tipoArma">
+            <End Role="tipoArma" EntitySet="tipoArma" />
+            <End Role="arma" EntitySet="arma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_armaExplosiva_armaExplosiva" Association="Self.FK_armaExplosiva_armaExplosiva">
+            <End Role="marca" EntitySet="marca" />
+            <End Role="armaExplosiva" EntitySet="armaExplosiva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_arsenalSoldado_soldado" Association="Self.FK_arsenalSoldado_soldado">
+            <End Role="soldado" EntitySet="soldado" />
+            <End Role="arsenalSoldado" EntitySet="arsenalSoldado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_arsenalSoldado_vehiculo" Association="Self.FK_arsenalSoldado_vehiculo">
+            <End Role="vehiculo" EntitySet="vehiculo" />
+            <End Role="arsenalSoldado" EntitySet="arsenalSoldado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marca_clasificacion" Association="Self.FK_marca_clasificacion">
+            <End Role="clasificacion" EntitySet="clasificacion" />
+            <End Role="marca" EntitySet="marca" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paisArma_arma" Association="Self.FK_paisArma_arma">
+            <End Role="arma" EntitySet="arma" />
+            <End Role="paisArma" EntitySet="paisArma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paisArma_pais" Association="Self.FK_paisArma_pais">
+            <End Role="pais" EntitySet="pais" />
+            <End Role="paisArma" EntitySet="paisArma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paisArmaExplosiva_armaExplosiva" Association="Self.FK_paisArmaExplosiva_armaExplosiva">
+            <End Role="armaExplosiva" EntitySet="armaExplosiva" />
+            <End Role="paisArmaExplosiva" EntitySet="paisArmaExplosiva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paisArmaExplosiva_pais" Association="Self.FK_paisArmaExplosiva_pais">
+            <End Role="pais" EntitySet="pais" />
+            <End Role="paisArmaExplosiva" EntitySet="paisArmaExplosiva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paisVehiculo_pais" Association="Self.FK_paisVehiculo_pais">
+            <End Role="pais" EntitySet="pais" />
+            <End Role="paisVehiculo" EntitySet="paisVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paisVehiculo_vehiculo" Association="Self.FK_paisVehiculo_vehiculo">
+            <End Role="vehiculo" EntitySet="vehiculo" />
+            <End Role="paisVehiculo" EntitySet="paisVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_soldado_pais" Association="Self.FK_soldado_pais">
+            <End Role="pais" EntitySet="pais" />
+            <End Role="soldado" EntitySet="soldado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_soldado_profesion" Association="Self.FK_soldado_profesion">
+            <End Role="profesion" EntitySet="profesion" />
+            <End Role="soldado" EntitySet="soldado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_soldado_rango" Association="Self.FK_soldado_rango">
+            <End Role="rango" EntitySet="rango" />
+            <End Role="soldado" EntitySet="soldado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_soldadoTipoArma_soldado" Association="Self.FK_soldadoTipoArma_soldado">
+            <End Role="soldado" EntitySet="soldado" />
+            <End Role="soldadoTipoArma" EntitySet="soldadoTipoArma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_soldadoTipoArma_tipoArma" Association="Self.FK_soldadoTipoArma_tipoArma">
+            <End Role="tipoArma" EntitySet="tipoArma" />
+            <End Role="soldadoTipoArma" EntitySet="soldadoTipoArma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_TipoUsuario" Association="Self.FK_Usuario_TipoUsuario">
+            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vehiculo_marca" Association="Self.FK_vehiculo_marca">
+            <End Role="marca" EntitySet="marca" />
+            <End Role="vehiculo" EntitySet="vehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vehiculo_tipoVehiculo" Association="Self.FK_vehiculo_tipoVehiculo">
+            <End Role="tipoVehiculo" EntitySet="tipoVehiculo" />
+            <End Role="vehiculo" EntitySet="vehiculo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="conflictoaisurModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="arma">
+          <Key>
+            <PropertyRef Name="id_arma" />
+          </Key>
+          <Property Name="id_arma" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="peso" Type="Int32" />
+          <Property Name="cantidadMunicion" Type="Int32" />
+          <Property Name="IdTipoArma_Fk" Type="Int64" />
+          <Property Name="IdMarca_Fk" Type="Int64" />
+          <NavigationProperty Name="marca" Relationship="Self.FK_arma_marca" FromRole="arma" ToRole="marca" />
+          <NavigationProperty Name="tipoArma" Relationship="Self.FK_arma_tipoArma" FromRole="arma" ToRole="tipoArma" />
+          <NavigationProperty Name="paisArma" Relationship="Self.FK_paisArma_arma" FromRole="arma" ToRole="paisArma" />
+        </EntityType>
+        <EntityType Name="armaExplosiva">
+          <Key>
+            <PropertyRef Name="id_armaExplosiva" />
+          </Key>
+          <Property Name="id_armaExplosiva" Type="Int64" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="peso" Type="Int32" />
+          <Property Name="alcance" Type="Int32" />
+          <Property Name="poderDestruccion" Type="Int32" />
+          <Property Name="idMarca_Fk" Type="Int64" />
+          <NavigationProperty Name="marca" Relationship="Self.FK_armaExplosiva_armaExplosiva" FromRole="armaExplosiva" ToRole="marca" />
+          <NavigationProperty Name="paisArmaExplosiva" Relationship="Self.FK_paisArmaExplosiva_armaExplosiva" FromRole="armaExplosiva" ToRole="paisArmaExplosiva" />
+        </EntityType>
+        <EntityType Name="arsenalSoldado">
+          <Key>
+            <PropertyRef Name="id_arsenalSolado" />
+          </Key>
+          <Property Name="id_arsenalSolado" Type="Int64" Nullable="false" />
+          <Property Name="idSoldado_Fk" Type="Int64" />
+          <Property Name="idVehiculo_Fk" Type="Int64" />
+          <NavigationProperty Name="soldado" Relationship="Self.FK_arsenalSoldado_soldado" FromRole="arsenalSoldado" ToRole="soldado" />
+          <NavigationProperty Name="vehiculo" Relationship="Self.FK_arsenalSoldado_vehiculo" FromRole="arsenalSoldado" ToRole="vehiculo" />
+        </EntityType>
+        <EntityType Name="clasificacion">
+          <Key>
+            <PropertyRef Name="id_clasificacion" />
+          </Key>
+          <Property Name="id_clasificacion" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clasificacion1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="marca" Relationship="Self.FK_marca_clasificacion" FromRole="clasificacion" ToRole="marca" />
+        </EntityType>
+        <EntityType Name="marca">
+          <Key>
+            <PropertyRef Name="id_marca" />
+          </Key>
+          <Property Name="id_marca" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="idClasificacion_Fk" Type="Int64" />
+          <NavigationProperty Name="arma" Relationship="Self.FK_arma_marca" FromRole="marca" ToRole="arma" />
+          <NavigationProperty Name="armaExplosiva" Relationship="Self.FK_armaExplosiva_armaExplosiva" FromRole="marca" ToRole="armaExplosiva" />
+          <NavigationProperty Name="clasificacion" Relationship="Self.FK_marca_clasificacion" FromRole="marca" ToRole="clasificacion" />
+          <NavigationProperty Name="vehiculo" Relationship="Self.FK_vehiculo_marca" FromRole="marca" ToRole="vehiculo" />
+        </EntityType>
+        <EntityType Name="pais">
+          <Key>
+            <PropertyRef Name="id_pais" />
+          </Key>
+          <Property Name="id_pais" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="paisArma" Relationship="Self.FK_paisArma_pais" FromRole="pais" ToRole="paisArma" />
+          <NavigationProperty Name="paisArmaExplosiva" Relationship="Self.FK_paisArmaExplosiva_pais" FromRole="pais" ToRole="paisArmaExplosiva" />
+          <NavigationProperty Name="paisVehiculo" Relationship="Self.FK_paisVehiculo_pais" FromRole="pais" ToRole="paisVehiculo" />
+          <NavigationProperty Name="soldado" Relationship="Self.FK_soldado_pais" FromRole="pais" ToRole="soldado" />
+        </EntityType>
+        <EntityType Name="paisArma">
+          <Key>
+            <PropertyRef Name="id_paisArma" />
+          </Key>
+          <Property Name="id_paisArma" Type="Int64" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" />
+          <Property Name="cantidadMunicion" Type="Int32" />
+          <Property Name="IdPais_Fk" Type="Int64" />
+          <Property Name="IdArma_Fk" Type="Int64" />
+          <NavigationProperty Name="arma" Relationship="Self.FK_paisArma_arma" FromRole="paisArma" ToRole="arma" />
+          <NavigationProperty Name="pais" Relationship="Self.FK_paisArma_pais" FromRole="paisArma" ToRole="pais" />
+        </EntityType>
+        <EntityType Name="paisArmaExplosiva">
+          <Key>
+            <PropertyRef Name="id_paisArmaExplosiva" />
+          </Key>
+          <Property Name="id_paisArmaExplosiva" Type="Int64" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" />
+          <Property Name="idPais_Fk" Type="Int64" />
+          <Property Name="idArmaExplosiva_Fk" Type="Int64" />
+          <NavigationProperty Name="armaExplosiva" Relationship="Self.FK_paisArmaExplosiva_armaExplosiva" FromRole="paisArmaExplosiva" ToRole="armaExplosiva" />
+          <NavigationProperty Name="pais" Relationship="Self.FK_paisArmaExplosiva_pais" FromRole="paisArmaExplosiva" ToRole="pais" />
+        </EntityType>
+        <EntityType Name="paisVehiculo">
+          <Key>
+            <PropertyRef Name="id_paisVehiculo" />
+          </Key>
+          <Property Name="id_paisVehiculo" Type="Int64" Nullable="false" />
+          <Property Name="idPais_Fk" Type="Int64" />
+          <Property Name="idVehiculo_Fk" Type="Int64" />
+          <NavigationProperty Name="pais" Relationship="Self.FK_paisVehiculo_pais" FromRole="paisVehiculo" ToRole="pais" />
+          <NavigationProperty Name="vehiculo" Relationship="Self.FK_paisVehiculo_vehiculo" FromRole="paisVehiculo" ToRole="vehiculo" />
+        </EntityType>
+        <EntityType Name="profesion">
+          <Key>
+            <PropertyRef Name="id_profesion" />
+          </Key>
+          <Property Name="id_profesion" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="soldado" Relationship="Self.FK_soldado_profesion" FromRole="profesion" ToRole="soldado" />
+        </EntityType>
+        <EntityType Name="rango">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="soldado" Relationship="Self.FK_soldado_rango" FromRole="rango" ToRole="soldado" />
+        </EntityType>
+        <EntityType Name="soldado">
+          <Key>
+            <PropertyRef Name="id_soldado" />
+          </Key>
+          <Property Name="id_soldado" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="edad" Type="Int32" />
+          <Property Name="experiencia" Type="Int32" />
+          <Property Name="capacidadCarga" Type="Int32" />
+          <Property Name="idPais_Fk" Type="Int64" />
+          <Property Name="idProfesion_Fk" Type="Int64" />
+          <Property Name="idRango_Fk" Type="Int64" />
+          <NavigationProperty Name="arsenalSoldado" Relationship="Self.FK_arsenalSoldado_soldado" FromRole="soldado" ToRole="arsenalSoldado" />
+          <NavigationProperty Name="pais" Relationship="Self.FK_soldado_pais" FromRole="soldado" ToRole="pais" />
+          <NavigationProperty Name="profesion" Relationship="Self.FK_soldado_profesion" FromRole="soldado" ToRole="profesion" />
+          <NavigationProperty Name="rango" Relationship="Self.FK_soldado_rango" FromRole="soldado" ToRole="rango" />
+          <NavigationProperty Name="soldadoTipoArma" Relationship="Self.FK_soldadoTipoArma_soldado" FromRole="soldado" ToRole="soldadoTipoArma" />
+        </EntityType>
+        <EntityType Name="soldadoTipoArma">
+          <Key>
+            <PropertyRef Name="id_soldadoTipoArma" />
+          </Key>
+          <Property Name="id_soldadoTipoArma" Type="Int64" Nullable="false" />
+          <Property Name="idSoldado" Type="Int64" />
+          <Property Name="idTipoArma_Fk" Type="Int64" />
+          <NavigationProperty Name="soldado" Relationship="Self.FK_soldadoTipoArma_soldado" FromRole="soldadoTipoArma" ToRole="soldado" />
+          <NavigationProperty Name="tipoArma" Relationship="Self.FK_soldadoTipoArma_tipoArma" FromRole="soldadoTipoArma" ToRole="tipoArma" />
+        </EntityType>
+        <EntityType Name="tipoArma">
+          <Key>
+            <PropertyRef Name="id_tipoArma" />
+          </Key>
+          <Property Name="id_tipoArma" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="clasificacion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="arma" Relationship="Self.FK_arma_tipoArma" FromRole="tipoArma" ToRole="arma" />
+          <NavigationProperty Name="soldadoTipoArma" Relationship="Self.FK_soldadoTipoArma_tipoArma" FromRole="tipoArma" ToRole="soldadoTipoArma" />
+        </EntityType>
+        <EntityType Name="TipoUsuario">
+          <Key>
+            <PropertyRef Name="id_TipoUsuario" />
+          </Key>
+          <Property Name="id_TipoUsuario" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_TipoUsuario" FromRole="TipoUsuario" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="tipoVehiculo">
+          <Key>
+            <PropertyRef Name="id_tipoVehiculo" />
+          </Key>
+          <Property Name="id_tipoVehiculo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="vehiculo" Relationship="Self.FK_vehiculo_tipoVehiculo" FromRole="tipoVehiculo" ToRole="vehiculo" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id_Usuario" />
+          </Key>
+          <Property Name="id_Usuario" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="id_TipoUsuario" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="TipoUsuario" Relationship="Self.FK_Usuario_TipoUsuario" FromRole="Usuario" ToRole="TipoUsuario" />
+        </EntityType>
+        <EntityType Name="vehiculo">
+          <Key>
+            <PropertyRef Name="id_vehiculo" />
+          </Key>
+          <Property Name="id_vehiculo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="cilindraje" Type="Int32" />
+          <Property Name="capacidadCargaMunicion" Type="Int32" />
+          <Property Name="idTipoVehiculo_Fk" Type="Int64" />
+          <Property Name="idMarca_Fk" Type="Int64" />
+          <NavigationProperty Name="arsenalSoldado" Relationship="Self.FK_arsenalSoldado_vehiculo" FromRole="vehiculo" ToRole="arsenalSoldado" />
+          <NavigationProperty Name="marca" Relationship="Self.FK_vehiculo_marca" FromRole="vehiculo" ToRole="marca" />
+          <NavigationProperty Name="paisVehiculo" Relationship="Self.FK_paisVehiculo_vehiculo" FromRole="vehiculo" ToRole="paisVehiculo" />
+          <NavigationProperty Name="tipoVehiculo" Relationship="Self.FK_vehiculo_tipoVehiculo" FromRole="vehiculo" ToRole="tipoVehiculo" />
+        </EntityType>
+        <Association Name="FK_arma_marca">
+          <End Role="marca" Type="Self.marca" Multiplicity="0..1" />
+          <End Role="arma" Type="Self.arma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="marca">
+              <PropertyRef Name="id_marca" />
+            </Principal>
+            <Dependent Role="arma">
+              <PropertyRef Name="IdMarca_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_arma_tipoArma">
+          <End Role="tipoArma" Type="Self.tipoArma" Multiplicity="0..1" />
+          <End Role="arma" Type="Self.arma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoArma">
+              <PropertyRef Name="id_tipoArma" />
+            </Principal>
+            <Dependent Role="arma">
+              <PropertyRef Name="IdTipoArma_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paisArma_arma">
+          <End Role="arma" Type="Self.arma" Multiplicity="0..1" />
+          <End Role="paisArma" Type="Self.paisArma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="arma">
+              <PropertyRef Name="id_arma" />
+            </Principal>
+            <Dependent Role="paisArma">
+              <PropertyRef Name="IdArma_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_armaExplosiva_armaExplosiva">
+          <End Role="marca" Type="Self.marca" Multiplicity="0..1" />
+          <End Role="armaExplosiva" Type="Self.armaExplosiva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="marca">
+              <PropertyRef Name="id_marca" />
+            </Principal>
+            <Dependent Role="armaExplosiva">
+              <PropertyRef Name="idMarca_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paisArmaExplosiva_armaExplosiva">
+          <End Role="armaExplosiva" Type="Self.armaExplosiva" Multiplicity="0..1" />
+          <End Role="paisArmaExplosiva" Type="Self.paisArmaExplosiva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="armaExplosiva">
+              <PropertyRef Name="id_armaExplosiva" />
+            </Principal>
+            <Dependent Role="paisArmaExplosiva">
+              <PropertyRef Name="idArmaExplosiva_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_arsenalSoldado_soldado">
+          <End Role="soldado" Type="Self.soldado" Multiplicity="0..1" />
+          <End Role="arsenalSoldado" Type="Self.arsenalSoldado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="soldado">
+              <PropertyRef Name="id_soldado" />
+            </Principal>
+            <Dependent Role="arsenalSoldado">
+              <PropertyRef Name="idSoldado_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_arsenalSoldado_vehiculo">
+          <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="0..1" />
+          <End Role="arsenalSoldado" Type="Self.arsenalSoldado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehiculo">
+              <PropertyRef Name="id_vehiculo" />
+            </Principal>
+            <Dependent Role="arsenalSoldado">
+              <PropertyRef Name="idVehiculo_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marca_clasificacion">
+          <End Role="clasificacion" Type="Self.clasificacion" Multiplicity="0..1" />
+          <End Role="marca" Type="Self.marca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clasificacion">
+              <PropertyRef Name="id_clasificacion" />
+            </Principal>
+            <Dependent Role="marca">
+              <PropertyRef Name="idClasificacion_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vehiculo_marca">
+          <End Role="marca" Type="Self.marca" Multiplicity="0..1" />
+          <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="marca">
+              <PropertyRef Name="id_marca" />
+            </Principal>
+            <Dependent Role="vehiculo">
+              <PropertyRef Name="idMarca_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paisArma_pais">
+          <End Role="pais" Type="Self.pais" Multiplicity="0..1" />
+          <End Role="paisArma" Type="Self.paisArma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pais">
+              <PropertyRef Name="id_pais" />
+            </Principal>
+            <Dependent Role="paisArma">
+              <PropertyRef Name="IdPais_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paisArmaExplosiva_pais">
+          <End Role="pais" Type="Self.pais" Multiplicity="0..1" />
+          <End Role="paisArmaExplosiva" Type="Self.paisArmaExplosiva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pais">
+              <PropertyRef Name="id_pais" />
+            </Principal>
+            <Dependent Role="paisArmaExplosiva">
+              <PropertyRef Name="idPais_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paisVehiculo_pais">
+          <End Role="pais" Type="Self.pais" Multiplicity="0..1" />
+          <End Role="paisVehiculo" Type="Self.paisVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pais">
+              <PropertyRef Name="id_pais" />
+            </Principal>
+            <Dependent Role="paisVehiculo">
+              <PropertyRef Name="idPais_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_soldado_pais">
+          <End Role="pais" Type="Self.pais" Multiplicity="0..1" />
+          <End Role="soldado" Type="Self.soldado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pais">
+              <PropertyRef Name="id_pais" />
+            </Principal>
+            <Dependent Role="soldado">
+              <PropertyRef Name="idPais_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paisVehiculo_vehiculo">
+          <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="0..1" />
+          <End Role="paisVehiculo" Type="Self.paisVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehiculo">
+              <PropertyRef Name="id_vehiculo" />
+            </Principal>
+            <Dependent Role="paisVehiculo">
+              <PropertyRef Name="idVehiculo_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_soldado_profesion">
+          <End Role="profesion" Type="Self.profesion" Multiplicity="0..1" />
+          <End Role="soldado" Type="Self.soldado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profesion">
+              <PropertyRef Name="id_profesion" />
+            </Principal>
+            <Dependent Role="soldado">
+              <PropertyRef Name="idProfesion_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_soldado_rango">
+          <End Role="rango" Type="Self.rango" Multiplicity="0..1" />
+          <End Role="soldado" Type="Self.soldado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rango">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="soldado">
+              <PropertyRef Name="idRango_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_soldadoTipoArma_soldado">
+          <End Role="soldado" Type="Self.soldado" Multiplicity="0..1" />
+          <End Role="soldadoTipoArma" Type="Self.soldadoTipoArma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="soldado">
+              <PropertyRef Name="id_soldado" />
+            </Principal>
+            <Dependent Role="soldadoTipoArma">
+              <PropertyRef Name="idSoldado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_soldadoTipoArma_tipoArma">
+          <End Role="tipoArma" Type="Self.tipoArma" Multiplicity="0..1" />
+          <End Role="soldadoTipoArma" Type="Self.soldadoTipoArma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoArma">
+              <PropertyRef Name="id_tipoArma" />
+            </Principal>
+            <Dependent Role="soldadoTipoArma">
+              <PropertyRef Name="idTipoArma_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_TipoUsuario">
+          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuario">
+              <PropertyRef Name="id_TipoUsuario" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="id_TipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vehiculo_tipoVehiculo">
+          <End Role="tipoVehiculo" Type="Self.tipoVehiculo" Multiplicity="0..1" />
+          <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoVehiculo">
+              <PropertyRef Name="id_tipoVehiculo" />
+            </Principal>
+            <Dependent Role="vehiculo">
+              <PropertyRef Name="idTipoVehiculo_Fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbconflictoaisurEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="arma" EntityType="Self.arma" />
+          <EntitySet Name="armaExplosiva" EntityType="Self.armaExplosiva" />
+          <EntitySet Name="arsenalSoldado" EntityType="Self.arsenalSoldado" />
+          <EntitySet Name="clasificacion" EntityType="Self.clasificacion" />
+          <EntitySet Name="marca" EntityType="Self.marca" />
+          <EntitySet Name="pais" EntityType="Self.pais" />
+          <EntitySet Name="paisArma" EntityType="Self.paisArma" />
+          <EntitySet Name="paisArmaExplosiva" EntityType="Self.paisArmaExplosiva" />
+          <EntitySet Name="paisVehiculo" EntityType="Self.paisVehiculo" />
+          <EntitySet Name="profesion" EntityType="Self.profesion" />
+          <EntitySet Name="rango" EntityType="Self.rango" />
+          <EntitySet Name="soldado" EntityType="Self.soldado" />
+          <EntitySet Name="soldadoTipoArma" EntityType="Self.soldadoTipoArma" />
+          <EntitySet Name="tipoArma" EntityType="Self.tipoArma" />
+          <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" />
+          <EntitySet Name="tipoVehiculo" EntityType="Self.tipoVehiculo" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="vehiculo" EntityType="Self.vehiculo" />
+          <AssociationSet Name="FK_arma_marca" Association="Self.FK_arma_marca">
+            <End Role="marca" EntitySet="marca" />
+            <End Role="arma" EntitySet="arma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_arma_tipoArma" Association="Self.FK_arma_tipoArma">
+            <End Role="tipoArma" EntitySet="tipoArma" />
+            <End Role="arma" EntitySet="arma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paisArma_arma" Association="Self.FK_paisArma_arma">
+            <End Role="arma" EntitySet="arma" />
+            <End Role="paisArma" EntitySet="paisArma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_armaExplosiva_armaExplosiva" Association="Self.FK_armaExplosiva_armaExplosiva">
+            <End Role="marca" EntitySet="marca" />
+            <End Role="armaExplosiva" EntitySet="armaExplosiva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paisArmaExplosiva_armaExplosiva" Association="Self.FK_paisArmaExplosiva_armaExplosiva">
+            <End Role="armaExplosiva" EntitySet="armaExplosiva" />
+            <End Role="paisArmaExplosiva" EntitySet="paisArmaExplosiva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_arsenalSoldado_soldado" Association="Self.FK_arsenalSoldado_soldado">
+            <End Role="soldado" EntitySet="soldado" />
+            <End Role="arsenalSoldado" EntitySet="arsenalSoldado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_arsenalSoldado_vehiculo" Association="Self.FK_arsenalSoldado_vehiculo">
+            <End Role="vehiculo" EntitySet="vehiculo" />
+            <End Role="arsenalSoldado" EntitySet="arsenalSoldado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marca_clasificacion" Association="Self.FK_marca_clasificacion">
+            <End Role="clasificacion" EntitySet="clasificacion" />
+            <End Role="marca" EntitySet="marca" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vehiculo_marca" Association="Self.FK_vehiculo_marca">
+            <End Role="marca" EntitySet="marca" />
+            <End Role="vehiculo" EntitySet="vehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paisArma_pais" Association="Self.FK_paisArma_pais">
+            <End Role="pais" EntitySet="pais" />
+            <End Role="paisArma" EntitySet="paisArma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paisArmaExplosiva_pais" Association="Self.FK_paisArmaExplosiva_pais">
+            <End Role="pais" EntitySet="pais" />
+            <End Role="paisArmaExplosiva" EntitySet="paisArmaExplosiva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paisVehiculo_pais" Association="Self.FK_paisVehiculo_pais">
+            <End Role="pais" EntitySet="pais" />
+            <End Role="paisVehiculo" EntitySet="paisVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_soldado_pais" Association="Self.FK_soldado_pais">
+            <End Role="pais" EntitySet="pais" />
+            <End Role="soldado" EntitySet="soldado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paisVehiculo_vehiculo" Association="Self.FK_paisVehiculo_vehiculo">
+            <End Role="vehiculo" EntitySet="vehiculo" />
+            <End Role="paisVehiculo" EntitySet="paisVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_soldado_profesion" Association="Self.FK_soldado_profesion">
+            <End Role="profesion" EntitySet="profesion" />
+            <End Role="soldado" EntitySet="soldado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_soldado_rango" Association="Self.FK_soldado_rango">
+            <End Role="rango" EntitySet="rango" />
+            <End Role="soldado" EntitySet="soldado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_soldadoTipoArma_soldado" Association="Self.FK_soldadoTipoArma_soldado">
+            <End Role="soldado" EntitySet="soldado" />
+            <End Role="soldadoTipoArma" EntitySet="soldadoTipoArma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_soldadoTipoArma_tipoArma" Association="Self.FK_soldadoTipoArma_tipoArma">
+            <End Role="tipoArma" EntitySet="tipoArma" />
+            <End Role="soldadoTipoArma" EntitySet="soldadoTipoArma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_TipoUsuario" Association="Self.FK_Usuario_TipoUsuario">
+            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vehiculo_tipoVehiculo" Association="Self.FK_vehiculo_tipoVehiculo">
+            <End Role="tipoVehiculo" EntitySet="tipoVehiculo" />
+            <End Role="vehiculo" EntitySet="vehiculo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="conflictoaisurModelStoreContainer" CdmEntityContainer="dbconflictoaisurEntities">
+          <EntitySetMapping Name="arma">
+            <EntityTypeMapping TypeName="conflictoaisurModel.arma">
+              <MappingFragment StoreEntitySet="arma">
+                <ScalarProperty Name="id_arma" ColumnName="id_arma" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="peso" ColumnName="peso" />
+                <ScalarProperty Name="cantidadMunicion" ColumnName="cantidadMunicion" />
+                <ScalarProperty Name="IdTipoArma_Fk" ColumnName="IdTipoArma_Fk" />
+                <ScalarProperty Name="IdMarca_Fk" ColumnName="IdMarca_Fk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="armaExplosiva">
+            <EntityTypeMapping TypeName="conflictoaisurModel.armaExplosiva">
+              <MappingFragment StoreEntitySet="armaExplosiva">
+                <ScalarProperty Name="id_armaExplosiva" ColumnName="id_armaExplosiva" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="peso" ColumnName="peso" />
+                <ScalarProperty Name="alcance" ColumnName="alcance" />
+                <ScalarProperty Name="poderDestruccion" ColumnName="poderDestruccion" />
+                <ScalarProperty Name="idMarca_Fk" ColumnName="idMarca_Fk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="arsenalSoldado">
+            <EntityTypeMapping TypeName="conflictoaisurModel.arsenalSoldado">
+              <MappingFragment StoreEntitySet="arsenalSoldado">
+                <ScalarProperty Name="id_arsenalSolado" ColumnName="id_arsenalSolado" />
+                <ScalarProperty Name="idSoldado_Fk" ColumnName="idSoldado_Fk" />
+                <ScalarProperty Name="idVehiculo_Fk" ColumnName="idVehiculo_Fk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clasificacion">
+            <EntityTypeMapping TypeName="conflictoaisurModel.clasificacion">
+              <MappingFragment StoreEntitySet="clasificacion">
+                <ScalarProperty Name="id_clasificacion" ColumnName="id_clasificacion" />
+                <ScalarProperty Name="clasificacion1" ColumnName="clasificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="marca">
+            <EntityTypeMapping TypeName="conflictoaisurModel.marca">
+              <MappingFragment StoreEntitySet="marca">
+                <ScalarProperty Name="id_marca" ColumnName="id_marca" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idClasificacion_Fk" ColumnName="idClasificacion_Fk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pais">
+            <EntityTypeMapping TypeName="conflictoaisurModel.pais">
+              <MappingFragment StoreEntitySet="pais">
+                <ScalarProperty Name="id_pais" ColumnName="id_pais" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paisArma">
+            <EntityTypeMapping TypeName="conflictoaisurModel.paisArma">
+              <MappingFragment StoreEntitySet="paisArma">
+                <ScalarProperty Name="id_paisArma" ColumnName="id_paisArma" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="cantidadMunicion" ColumnName="cantidadMunicion" />
+                <ScalarProperty Name="IdPais_Fk" ColumnName="IdPais_Fk" />
+                <ScalarProperty Name="IdArma_Fk" ColumnName="IdArma_Fk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paisArmaExplosiva">
+            <EntityTypeMapping TypeName="conflictoaisurModel.paisArmaExplosiva">
+              <MappingFragment StoreEntitySet="paisArmaExplosiva">
+                <ScalarProperty Name="id_paisArmaExplosiva" ColumnName="id_paisArmaExplosiva" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="idPais_Fk" ColumnName="idPais_Fk" />
+                <ScalarProperty Name="idArmaExplosiva_Fk" ColumnName="idArmaExplosiva_Fk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paisVehiculo">
+            <EntityTypeMapping TypeName="conflictoaisurModel.paisVehiculo">
+              <MappingFragment StoreEntitySet="paisVehiculo">
+                <ScalarProperty Name="id_paisVehiculo" ColumnName="id_paisVehiculo" />
+                <ScalarProperty Name="idPais_Fk" ColumnName="idPais_Fk" />
+                <ScalarProperty Name="idVehiculo_Fk" ColumnName="idVehiculo_Fk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="profesion">
+            <EntityTypeMapping TypeName="conflictoaisurModel.profesion">
+              <MappingFragment StoreEntitySet="profesion">
+                <ScalarProperty Name="id_profesion" ColumnName="id_profesion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rango">
+            <EntityTypeMapping TypeName="conflictoaisurModel.rango">
+              <MappingFragment StoreEntitySet="rango">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="soldado">
+            <EntityTypeMapping TypeName="conflictoaisurModel.soldado">
+              <MappingFragment StoreEntitySet="soldado">
+                <ScalarProperty Name="id_soldado" ColumnName="id_soldado" />
+                <ScalarProperty Name="edad" ColumnName="edad" />
+                <ScalarProperty Name="experiencia" ColumnName="experiencia" />
+                <ScalarProperty Name="capacidadCarga" ColumnName="capacidadCarga" />
+                <ScalarProperty Name="idPais_Fk" ColumnName="idPais_Fk" />
+                <ScalarProperty Name="idProfesion_Fk" ColumnName="idProfesion_Fk" />
+                <ScalarProperty Name="idRango_Fk" ColumnName="idRango_Fk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="soldadoTipoArma">
+            <EntityTypeMapping TypeName="conflictoaisurModel.soldadoTipoArma">
+              <MappingFragment StoreEntitySet="soldadoTipoArma">
+                <ScalarProperty Name="id_soldadoTipoArma" ColumnName="id_soldadoTipoArma" />
+                <ScalarProperty Name="idSoldado" ColumnName="idSoldado" />
+                <ScalarProperty Name="idTipoArma_Fk" ColumnName="idTipoArma_Fk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoArma">
+            <EntityTypeMapping TypeName="conflictoaisurModel.tipoArma">
+              <MappingFragment StoreEntitySet="tipoArma">
+                <ScalarProperty Name="id_tipoArma" ColumnName="id_tipoArma" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="clasificacion" ColumnName="clasificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoUsuario">
+            <EntityTypeMapping TypeName="conflictoaisurModel.TipoUsuario">
+              <MappingFragment StoreEntitySet="TipoUsuario">
+                <ScalarProperty Name="id_TipoUsuario" ColumnName="id_TipoUsuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoVehiculo">
+            <EntityTypeMapping TypeName="conflictoaisurModel.tipoVehiculo">
+              <MappingFragment StoreEntitySet="tipoVehiculo">
+                <ScalarProperty Name="id_tipoVehiculo" ColumnName="id_tipoVehiculo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="conflictoaisurModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="id_Usuario" ColumnName="id_Usuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="id_TipoUsuario" ColumnName="id_TipoUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vehiculo">
+            <EntityTypeMapping TypeName="conflictoaisurModel.vehiculo">
+              <MappingFragment StoreEntitySet="vehiculo">
+                <ScalarProperty Name="id_vehiculo" ColumnName="id_vehiculo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="cilindraje" ColumnName="cilindraje" />
+                <ScalarProperty Name="capacidadCargaMunicion" ColumnName="capacidadCargaMunicion" />
+                <ScalarProperty Name="idTipoVehiculo_Fk" ColumnName="idTipoVehiculo_Fk" />
+                <ScalarProperty Name="idMarca_Fk" ColumnName="idMarca_Fk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

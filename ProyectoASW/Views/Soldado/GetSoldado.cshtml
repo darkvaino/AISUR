@@ -1,0 +1,75 @@
+﻿@model ENTIDAD.soldado
+
+@{
+    ViewBag.Title = "GetSoldado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetSoldado</h2>
+
+<div>
+    <h4>soldado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_soldado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_soldado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.experiencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.experiencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.capacidadCarga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.capacidadCarga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idPais_Fk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idPais_Fk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idProfesion_Fk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idProfesion_Fk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idRango_Fk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idRango_Fk)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.id_soldado}) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

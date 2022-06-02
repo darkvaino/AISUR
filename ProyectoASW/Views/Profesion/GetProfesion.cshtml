@@ -1,0 +1,35 @@
+﻿@model ENTIDAD.profesion
+
+@{
+    ViewBag.Title = "GetProfesion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetProfesion</h2>
+
+<div>
+    <h4>profesion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Id Profesion
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_profesion)
+        </dd>
+
+        <dt>
+            Nombre de Profesion
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.id_profesion}) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

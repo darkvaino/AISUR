@@ -1,0 +1,66 @@
+﻿@model ENTIDAD.arma
+
+@{
+    ViewBag.Title = "GetArma";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <h4>Arma</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_arma)
+        </dd>
+
+        <dt>
+            NOMBRE
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            PESO
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.peso)
+        </dd>
+
+        <dt>
+            CANTIDAD MUNICION
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidadMunicion)
+        </dd>
+
+        <dt>
+            TIPO ARMA
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipoArma.nombre)
+        </dd>
+
+        <dt>
+            MARCA
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marca.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id= Model.id_arma }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

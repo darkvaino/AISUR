@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ENTIDAD.arma>
+
+@{
+    ViewBag.Title = "Listado de Armas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ARMAS</h2>
+
+<p>
+    @Html.ActionLink("Crear Arma", "Crear", "Arma")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            NOMBRE
+        </th>
+        <th>
+            PESO
+        </th>
+        <th>
+            CANTIDAD MUNICION
+        </th>
+        <th>
+            TIPO ARMA
+        </th>
+        <th>
+            MARCA
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_arma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.peso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidadMunicion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipoArma.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.marca.nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.id_arma }) |
+                @Html.ActionLink("Detalles", "GetArma", new { id = item.id_arma }) |
+                @Html.ActionLink("Eliminar", "Eliminar", new { id = item.id_arma })
+            </td>
+        </tr>
+    }
+
+</table>

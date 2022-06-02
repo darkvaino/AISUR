@@ -1,0 +1,42 @@
+﻿@model ENTIDAD.profesion
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>¿Estás seguro de eliminar este elemento?</h3>
+
+
+<div>
+    <h4>profesion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_profesion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_profesion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Eliminar", "Profesion", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

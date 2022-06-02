@@ -1,0 +1,81 @@
+﻿@model ENTIDAD.soldado
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>¿Estás seguro de eliminar este elemento?</h3>
+
+<div>
+    <h4>soldado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_soldado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_soldado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.experiencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.experiencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.capacidadCarga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.capacidadCarga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idPais_Fk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idPais_Fk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idProfesion_Fk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idProfesion_Fk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idRango_Fk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idRango_Fk)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Eliminar", "Soldado", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

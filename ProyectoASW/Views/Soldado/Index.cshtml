@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ENTIDAD.soldado>
+
+@{
+    ViewBag.Title = "Listado de Soldados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Soldados</h2>
+
+<p>
+    @Html.ActionLink("Crear Soldado", "Crear", "Soldado")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_soldado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.experiencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.capacidadCarga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idPais_Fk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idProfesion_Fk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idRango_Fk)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_soldado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.edad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.experiencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.capacidadCarga)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pais.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.profesion.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rango.nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id = item.id_soldado }) |
+            @Html.ActionLink("Detalles", "GetSoldado", new { id = item.id_soldado }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new { id = item.id_soldado })
+        </td>
+    </tr>
+}
+
+</table>
