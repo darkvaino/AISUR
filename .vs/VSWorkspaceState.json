@@ -5,8 +5,9 @@
     "\\ProyectoASW",
     "\\ProyectoASW\\Controllers",
     "\\ProyectoASW\\Views",
+    "\\ProyectoASW\\Views\\Home",
     "\\ProyectoASW\\Views\\Marca"
   ],
-  "SelectedNode": "\\ProyectoASW\\Views\\Marca\\Index.cshtml",
+  "SelectedNode": "\\ProyectoASW\\Views\\Home\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

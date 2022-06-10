@@ -1,10 +1,10 @@
-﻿#boton {
-    margin-top:-1000px;
-}
+﻿
 
-#imagen {
+img {
+    width: 1295px;
+    height: 575px;
+    margin-left: -80px;
+    background-size: cover;
+    background-attachment:fixed;
     
-    margin-left:-100px;
-    width: 1310px;
-    height: 589px;
 }
