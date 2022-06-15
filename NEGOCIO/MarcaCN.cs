@@ -12,9 +12,9 @@ namespace NEGOCIO
     {
         private static MarcaDALC obj = new MarcaDALC();
 
-        public static List<marca> GetSelectMarca()
+        public static List<marca> GetSelectMarca(bool esArma)
         {
-            return obj.GetSelectMarca();
+            return obj.GetSelectMarca(esArma);
         }
 
 

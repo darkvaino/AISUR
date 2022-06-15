@@ -68,6 +68,7 @@
     <Compile Include="ProfesionDALC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoldadoDALC.cs" />
+    <Compile Include="TipoVehiculoDALC.cs" />
     <Compile Include="UsuarioDALC.cs" />
     <Compile Include="VehiculoDALC.cs" />
   </ItemGroup>
