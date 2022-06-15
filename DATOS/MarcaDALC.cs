@@ -10,12 +10,19 @@ namespace DATOS
 {
     public class MarcaDALC
     {
+        public IEnumerable<marca> marcaArma;
         //listarel nombre marca en el select de la foranea de arma
-        public List<marca> GetSelectMarca()
+        public List<marca> GetSelectMarca(bool esArma)
         {
             using (var dbConexion = new dbconflictoaisurEntities())
             {
-                return dbConexion.marca.ToList();
+                if (esArma)
+                {
+                    marcaArma = dbConexion.marca.ToList().Where(m => m.nombre.Contains("Arma"));
+                    return marcaArma.ToList();
+                }
+                marcaArma = dbConexion.marca.ToList().Where(m => m.nombre.Contains("Vehiculo"));
+                return marcaArma.ToList();
             }
         }
 

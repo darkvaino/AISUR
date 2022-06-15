@@ -12,6 +12,7 @@ namespace ProyectoASW.Controllers
     public class VehiculoController : Controller
     {
         // GET: Vehiculo
+        
         public ActionResult Index()
         {
             var vehic = VehiculoCN.ListarVehiculos();
@@ -20,7 +21,11 @@ namespace ProyectoASW.Controllers
 
         public ActionResult Crear()
         {
+            ViewBag.IdMarca_Fk = new SelectList(MarcaCN.GetSelectMarca(false), "id_marca", "nombre");
+            ViewBag.IdTipoVehiculo_FK = new SelectList(TipoVehiculoCN.GetSelectTipoVehiculo(), "id_tipoVehiculo", "nombre");
             return View();
+
+            
         }
 
         [HttpPost]

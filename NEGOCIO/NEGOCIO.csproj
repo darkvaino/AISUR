@@ -49,6 +49,7 @@
     <Compile Include="ProfesionCN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoldadoCN.cs" />
+    <Compile Include="TipoVehiculoCN.cs" />
     <Compile Include="UsuarioCN.cs" />
     <Compile Include="VehiculoCN.cs" />
   </ItemGroup>

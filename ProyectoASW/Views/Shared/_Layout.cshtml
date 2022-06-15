@@ -32,11 +32,10 @@
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                     @if (nombre != null)
                     {
-                        <li>@Html.ActionLink("Arma", "Index", "Arma")</li>
-                        <li>@Html.ActionLink("Profesion", "Index", "Profesion")</li>
+                        <li>@Html.ActionLink("Arma", "Index", "Arma")</li>                      
                         <li>@Html.ActionLink("Soldado", "Index", "Soldado")</li>
                         <li>@Html.ActionLink("Vehiculo", "Index", "Vehiculo")</li>
-                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                      
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -45,7 +44,8 @@
 
         </div>
     </div>
-    <div class="container body-content">
+
+    <div class="container body-content col">
         @RenderBody()
         <hr />
         <footer>

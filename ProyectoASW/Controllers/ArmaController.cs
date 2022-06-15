@@ -20,7 +20,7 @@ namespace ProyectoASW.Controllers
         
         public ActionResult Crear()
         {
-            ViewBag.IdMarca_Fk = new SelectList(MarcaCN.GetSelectMarca(), "id_marca", "nombre");
+            ViewBag.IdMarca_Fk = new SelectList(MarcaCN.GetSelectMarca(true), "id_marca", "nombre");
             ViewBag.IdTipoArma_Fk = new SelectList(TipoArmaCN.GetSelectTipoArma(), "id_tipoArma", "nombre");
             return View();
         }
@@ -50,7 +50,7 @@ namespace ProyectoASW.Controllers
 
         public ActionResult Editar(int id)
         {
-            ViewBag.IdMarca_Fk = new SelectList(MarcaCN.GetSelectMarca(), "id_marca", "nombre");
+            ViewBag.IdMarca_Fk = new SelectList(MarcaCN.GetSelectMarca(true), "id_marca", "nombre");
             ViewBag.IdTipoArma_Fk = new SelectList(TipoArmaCN.GetSelectTipoArma(), "id_tipoArma", "nombre");
             var arm = ArmaCN.GetArma(id);
             return View(arm);

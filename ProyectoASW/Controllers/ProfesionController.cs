@@ -9,6 +9,7 @@ using NEGOCIO;
 
 namespace ProyectoASW.Controllers
 {
+   
     public class ProfesionController : Controller
     {
         
