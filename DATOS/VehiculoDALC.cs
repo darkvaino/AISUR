@@ -24,7 +24,8 @@ namespace DATOS
         {
             using (var bdConexion = new dbconflictoaisurEntities())
             {
-                return bdConexion.vehiculo.ToList();
+                var armas = bdConexion.vehiculo.Include(tv => tv.tipoVehiculo).Include(tv => tv.marca);
+                return armas.ToList();
             }
         }
 
