@@ -48,10 +48,10 @@
             @Html.DisplayFor(modelItem => item.capacidadCargaMunicion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.idTipoVehiculo_Fk)
+            @Html.DisplayFor(modelItem => item.tipoVehiculo.nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.idMarca_Fk)
+            @Html.DisplayFor(modelItem => item.marca.nombre)
         </td>
         <td>
             @Html.ActionLink("Editar", "Editar", new { id = item.id_vehiculo }) |

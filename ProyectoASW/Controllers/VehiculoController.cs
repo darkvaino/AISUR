@@ -52,6 +52,10 @@ namespace ProyectoASW.Controllers
 
         public ActionResult Editar(int id)
         {
+
+            ViewBag.IdMarca_Fk = new SelectList(MarcaCN.GetSelectMarca(false), "id_marca", "nombre");
+            ViewBag.IdTipoVehiculo_FK = new SelectList(TipoVehiculoCN.GetSelectTipoVehiculo(), "id_tipoVehiculo", "nombre");
+           
             var vehic = VehiculoCN.GetVehiculo(id);
             return View(vehic);
         }
