@@ -7,3 +7,11 @@
     background-size: cover;
     background-attachment: fixed;
 }
+.Image2 {
+    background-image: url(../imagenes/portada-aisur.jpg);
+    height: 575px;
+    margin-right: auto;
+    margin-left: auto;
+    background-size: cover;
+    background-attachment: fixed;
+}

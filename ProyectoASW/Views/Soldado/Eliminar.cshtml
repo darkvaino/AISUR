@@ -12,23 +12,22 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.id_soldado)
+            ID SOLDADO
         </dt>
-
+       
         <dd>
             @Html.DisplayFor(model => model.id_soldado)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.edad)
+             EDAD
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.edad)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.experiencia)
+            EXPERIENCIA (%)
         </dt>
 
         <dd>
@@ -36,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.capacidadCarga)
+           CAPACIDAD CARGA (KG)
         </dt>
 
         <dd>
@@ -44,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.idPais_Fk)
+            PAIS
         </dt>
 
         <dd>
@@ -52,7 +51,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.idProfesion_Fk)
+            PROFESION
         </dt>
 
         <dd>
@@ -60,7 +59,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.idRango_Fk)
+            RANGO
         </dt>
 
         <dd>
@@ -74,7 +73,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="submit" value="ELIMINAR" class="btn btn-default" /> |
             @Html.ActionLink("Regresar", "Index")
         </div>
     }
